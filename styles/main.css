@@ -39,10 +39,6 @@ img {
   margin-top: 5px;
 }
 
-.cart-container {
-  display: flex;
-  justify-content: space-between;
-}
 
 .cart-content {
   position: relative;
@@ -52,7 +48,7 @@ img {
 
 .cart {
   margin-top: 30px;
-  margin-right: 60%;
+  margin-right: 30px;
   float: right;
   border: 1px solid #d8d8d8;
   height: 40px;

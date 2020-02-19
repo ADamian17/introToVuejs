@@ -9,46 +9,12 @@
 <body>
   <div class="nav-bar"></div>
   <div id="app">
-    <div class="product">
-      
-      <div class="product-image">
-        <!-- : is short of v-bind -->
-        <img :src="image" alt="avatar">
-      </div>
-
-      <div class="product-info">
-        <h1>{{ product }}</h1>
-        <p v-show='inStock'>In Stock</p>
-        <!-- Conditional rendering -->
-        <!-- <p v-if='inventory > 10'>In Stock</p> -->
-        <!-- <p v-else-if='inventory <= 10 && inventory > 0'>Almost Sold Out </p> -->
-        <!-- <p v-else>Out of Stock</p> -->
-
-        <!-- V for -->
-        <ul>
-          <li v-for="detail in details" >{{ detail }}</li>
-        </ul>
-
-        <div v-for="variant in variants" 
-            :key='variant.variantId'
-            class="color-box"
-            :style="{ backgroundColor: variant.variantColor }"
-            @mouseover='updateProduct(variant.variantImage)'>
-        </div>
-        
-        <div class="cart-container" >
-          <button v-on:click='addToCart' 
-                  :disabled='!inStock' 
-                  :class="{ disabledButton: !inStock }">Add to Cart</button>
-
-          <div class="cart">
-            <p class="cart-content">Cart({{ cart }})</p>
-          </div>
-
-        </div>
-    
-      </div>
+    <div class="cart">
+      <p class="cart-content">Cart({{ cart.length }})</p>
     </div>
+
+    <product :premiun="premiun" @add-to-cart='updateCart' ></product>
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
